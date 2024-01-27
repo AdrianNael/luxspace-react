@@ -1,9 +1,16 @@
-import 'assets/css//app.css'
+import 'assets/css/app.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import HomePage from 'pages/HomePage';
 
 function App() {
   return (
     <div className="App">
-      <h1 className='text-xl text-'>Hero </h1>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
