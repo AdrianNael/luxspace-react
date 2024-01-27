@@ -44,7 +44,7 @@
 
 .overlay .video {
   @apply absolute flex items-center justify-center w-20 h-20 transform -translate-x-1/2 -translate-y-1/2 bg-blue-200 bg-center bg-no-repeat rounded-full;
-  background-image: url("../images/icon-play.svg#icon-play");
+  background-image: url("../images/icon-play.svg");
   top: 50%;
   left: 50%;
 }
@@ -81,6 +81,7 @@ ul.breadcrumb li:last-child a {
 }
 
 /* slider */
+
 .slider {
   @apply flex flex-col my-4;
 }
@@ -90,7 +91,7 @@ ul.breadcrumb li:last-child a {
 }
 
 .slider .thumbnail .item {
-  @apply relative mb-4 rounded rounded-lg cursor-pointer;
+  @apply relative mb-4 bg-gray-100 rounded rounded-lg cursor-pointer;
   width: 106px;
   height: 106px;
 }
@@ -133,8 +134,4 @@ a.cart.cart-filled svg g circle.dot {
 
 button[disabled] {
   @apply text-gray-400 bg-gray-300 cursor-not-allowed hover:bg-gray-300 hover:text-gray-400;
-}
-
-section:not(.bg-gray-100) + section.sitemap > div {
-  @apply border-t;
 }
