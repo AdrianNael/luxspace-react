@@ -4,87 +4,87 @@ import { Link } from "react-router-dom";
 export default function Sitemap() {
   return (
     <section className="">
-      <div className="border-t border-b border-gray-200 py-12 mt-16 px-4">
+      <div className="px-4 py-12 mt-16 border-t border-b border-gray-200">
         <div className="flex justify-center mb-8">
           <img
-            src="images/content/logo.png"
+            src="/images/content/logo.png"
             alt="Luxspace | Fulfill your house with beautiful furniture"
           />
         </div>
         <aside className="container mx-auto">
-          <div className="flex flex-wrap -mx-4 justify-center">
-            <div className="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
-              <h5 className="text-lg font-semibold mb-2 relative">Overview</h5>
-              <ul className="h-0 invisible md:h-auto md:visible overflow-hidden">
+          <div className="flex flex-wrap justify-center -mx-4">
+            <div className="w-full px-4 mb-4 md:w-2/12 md:mb-0 accordion">
+              <h5 className="relative mb-2 text-lg font-semibold">Overview</h5>
+              <ul className="invisible h-0 overflow-hidden md:h-auto md:visible">
                 <li>
-                  <Link to="/" className="hover:underline py-1 block">
+                  <Link to="/" className="block py-1 hover:underline">
                     Shipping
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="hover:underline py-1 block">
+                  <Link to="/" className="block py-1 hover:underline">
                     Refund
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="hover:underline py-1 block">
+                  <Link to="/" className="block py-1 hover:underline">
                     Promotion
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
-              <h5 className="text-lg font-semibold mb-2 relative">Company</h5>
-              <ul className="h-0 invisible md:h-auto md:visible overflow-hidden">
+            <div className="w-full px-4 mb-4 md:w-2/12 md:mb-0 accordion">
+              <h5 className="relative mb-2 text-lg font-semibold">Company</h5>
+              <ul className="invisible h-0 overflow-hidden md:h-auto md:visible">
                 <li>
-                  <Link to="/" className="hover:underline py-1 block">
+                  <Link to="/" className="block py-1 hover:underline">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="hover:underline py-1 block">
+                  <Link to="/" className="block py-1 hover:underline">
                     Career
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="hover:underline py-1 block">
+                  <Link to="/" className="block py-1 hover:underline">
                     Contact Us
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
-              <h5 className="text-lg font-semibold mb-2 relative">Explore</h5>
-              <ul className="h-0 invisible md:h-auto md:visible overflow-hidden">
+            <div className="w-full px-4 mb-4 md:w-2/12 md:mb-0 accordion">
+              <h5 className="relative mb-2 text-lg font-semibold">Explore</h5>
+              <ul className="invisible h-0 overflow-hidden md:h-auto md:visible">
                 <li>
-                  <Link to="/" className="hover:underline py-1 block">
+                  <Link to="/" className="block py-1 hover:underline">
                     Terms & Conds
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy-policy" className="hover:underline py-1 block">
+                  <Link to="/privacy-policy" className="block py-1 hover:underline">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="/for-developer" className="hover:underline py-1 block">
+                  <Link to="/for-developer" className="block py-1 hover:underline">
                     For Developer
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="px-4 w-full md:w-3/12 mb-4 md:mb-0">
-              <h5 className="text-lg font-semibold mb-2 relative">
+            <div className="w-full px-4 mb-4 md:w-3/12 md:mb-0">
+              <h5 className="relative mb-2 text-lg font-semibold">
                 Special Letter
               </h5>
               <form action="#">
                 <label className="relative w-full">
                   <input
                     type="text"
-                    className="bg-gray-100 rounded-xl py-3 px-5 w-full focus:outline-none"
+                    className="w-full px-5 py-3 bg-gray-100 rounded-xl focus:outline-none"
                     placeholder="Your email adress"
                   />
-                  <button className="bg-pink-400 absolute rounded-xl right-0 p-3">
+                  <button className="absolute right-0 p-3 bg-pink-400 rounded-xl">
                     <svg
                       width="24"
                       height="24"
