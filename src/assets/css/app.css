@@ -44,7 +44,7 @@
 
 .overlay .video {
   @apply absolute flex items-center justify-center w-20 h-20 transform -translate-x-1/2 -translate-y-1/2 bg-blue-200 bg-center bg-no-repeat rounded-full;
-  background-image: url("../images/icon-play.svg");
+  background-image: url("../images/icon-play.svg#icon-play");
   top: 50%;
   left: 50%;
 }
