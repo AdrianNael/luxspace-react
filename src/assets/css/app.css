@@ -82,18 +82,20 @@ ul.breadcrumb li:last-child a {
 
 /* slider */
 
-.slider {
-  @apply flex flex-col my-4;
-}
+@layer components {
+  .slider {
+    @apply flex flex-col my-4;
+  }
 
-.slider .thumbnail {
-  @apply flex order-last w-screen pl-4 -mx-2 overflow-auto;
-}
+  .slider .thumbnail {
+    @apply flex order-last w-screen pl-4 -mx-2 overflow-auto;
+  }
 
-.slider .thumbnail .item {
-  @apply relative mb-4 bg-gray-100 rounded rounded-lg cursor-pointer;
-  width: 106px;
-  height: 106px;
+  .slider .thumbnail .item {
+    @apply relative mb-4 rounded rounded-lg cursor-pointer;
+    width: 106px;
+    height: 106px;
+  }
 }
 
 .slider .thumbnail .item:after {
@@ -134,4 +136,8 @@ a.cart.cart-filled svg g circle.dot {
 
 button[disabled] {
   @apply text-gray-400 bg-gray-300 cursor-not-allowed hover:bg-gray-300 hover:text-gray-400;
+}
+
+section:not(.bg-gray-100) + section.sitemap > div {
+  @apply border-t;
 }
