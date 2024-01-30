@@ -28,8 +28,8 @@ export default function Hero() {
           <div className="bottom-0 right-0 overlay md:inset-0">
             <button
               className="z-30 video hero-cta focus:outline-none modal-trigger"
-              data-content='<div className="relative z-50 w-screen pb-56 md:w-88 md:pb-56">
-              <div className="absolute w-full h-full">
+              data-content='<div class="relative z-50 w-screen pb-56 md:w-96  md:pb-72">
+              <div class="absolute w-full h-full">
                 <iframe
                   width="100%"
                   height="100%"
