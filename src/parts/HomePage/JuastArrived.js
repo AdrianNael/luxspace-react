@@ -15,7 +15,6 @@ export default function JuastArrived() {
   useEffect(() => {
     run(fetch({ url: "/api/products/?page=1&limit=10" }));
   }, [run]);
-  console.log(data, status, error);
 
   return (
     <section className="flex flex-col py-16">
@@ -40,7 +39,7 @@ export default function JuastArrived() {
           <Carousel refContainer={refContainer}>
             {data.data.map((item) => {
               return (
-                <div className="relative px-4 card group">
+                <div className="relative px-4 card group" key={item.id}>
                   <div
                     className="relative overflow-hidden rounded-xl card-shadow"
                     style={{ width: 287, height: 386 }}
