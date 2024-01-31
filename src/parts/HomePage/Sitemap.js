@@ -1,7 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+function SitemapLinks({ isActive, setActive, children, title }) {
+  return (
+    <div className="w-full px-4 mb-4 md:w-2/12 md:mb-0 accordion">
+      <h5 className="relative mb-2 text-lg font-semibold">
+        {title}
+        <button
+          onClick={() => setActive(isActive)}
+          className={[
+            "absolute block md:hidden right-0 tranform -translate-y-1/2 focus:outline-none transition duration-200 top-1/2 ",
+            isActive ? "rotate - 0" : "rotate - 180",
+          ].join(" ")}
+        >
+          <svg
+            width="20"
+            height="9"
+            viewBox="0 0 20 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M0.197257 0.403676C0.526597 -0.0396672 1.15298 -0.132085 1.59632 0.197256L9.75 6.25427L17.9037 0.197256C18.347 -0.132085 18.9734 -0.0396672 19.3027 0.403676C19.6321 0.847019 19.5397 1.4734 19.0963 1.80274L10.3463 8.30274C9.99227 8.56575 9.50773 8.56575 9.15368 8.30274L0.403676 1.80274C-0.0396667 1.4734 -0.132084 0.847019 0.197257 0.403676Z"
+              fill="black"
+            />
+          </svg>
+        </button>
+      </h5>
+      <ul
+        className={[
+          "md:h-auto md:visible md:opacity-100 overflow-hidden transition duration-200",
+          isActive ? "h-0 invisible opacity-0" : "opacity-100",
+        ].join(" ")}
+      >
+        {children}
+      </ul>
+    </div>
+  );
+}
+
 export default function Sitemap() {
+  const [active, setActive] = React.useState(null);
   return (
     <section className="sitemap">
       <div className="px-4 py-12 mt-16 border-b border-gray-200">
@@ -13,66 +54,75 @@ export default function Sitemap() {
         </div>
         <aside className="container mx-auto">
           <div className="flex flex-wrap justify-center -mx-4">
-            <div className="w-full px-4 mb-4 md:w-2/12 md:mb-0 accordion">
-              <h5 className="relative mb-2 text-lg font-semibold">Overview</h5>
-              <ul className="invisible h-0 overflow-hidden md:h-auto md:visible">
-                <li>
-                  <Link to="/" className="block py-1 hover:underline">
-                    Shipping
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="block py-1 hover:underline">
-                    Refund
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="block py-1 hover:underline">
-                    Promotion
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="w-full px-4 mb-4 md:w-2/12 md:mb-0 accordion">
-              <h5 className="relative mb-2 text-lg font-semibold">Company</h5>
-              <ul className="invisible h-0 overflow-hidden md:h-auto md:visible">
-                <li>
-                  <Link to="/" className="block py-1 hover:underline">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="block py-1 hover:underline">
-                    Career
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="block py-1 hover:underline">
-                    Contact Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="w-full px-4 mb-4 md:w-2/12 md:mb-0 accordion">
-              <h5 className="relative mb-2 text-lg font-semibold">Explore</h5>
-              <ul className="invisible h-0 overflow-hidden md:h-auto md:visible">
-                <li>
-                  <Link to="/" className="block py-1 hover:underline">
-                    Terms & Conds
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/privacy-policy" className="block py-1 hover:underline">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/for-developer" className="block py-1 hover:underline">
-                    For Developer
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <SitemapLinks
+              setActive={setActive}
+              isActive={active === 1 ? null : 1}
+              title="Overview"
+            >
+              <li>
+                <Link to="/shipping" className="block py-1 hover:underline">
+                  Shipping
+                </Link>
+              </li>
+              <li>
+                <Link to="/refund" className="block py-1 hover:underline">
+                  Refund
+                </Link>
+              </li>
+              <li>
+                <Link to="/promotion" className="block py-1 hover:underline">
+                  Promotion
+                </Link>
+              </li>
+            </SitemapLinks>
+            <SitemapLinks
+              setActive={setActive}
+              isActive={active === 2 ? null : 2}
+              title="Company"
+            >
+              <li>
+                <Link to="/about" className="block py-1 hover:underline">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/career" className="block py-1 hover:underline">
+                  Career
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact-us" className="block py-1 hover:underline">
+                  Contact Us
+                </Link>
+              </li>
+            </SitemapLinks>
+            <SitemapLinks
+              setActive={setActive}
+              isActive={active === 3 ? null : 3}
+              title="Explore"
+            >
+              <li>
+                <Link to="/terms-conds" className="block py-1 hover:underline">
+                  Terms & Conds
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/privacy-policy"
+                  className="block py-1 hover:underline"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/for-developer"
+                  className="block py-1 hover:underline"
+                >
+                  For Developer
+                </Link>
+              </li>
+            </SitemapLinks>
             <div className="w-full px-4 mb-4 md:w-3/12 md:mb-0">
               <h5 className="relative mb-2 text-lg font-semibold">
                 Special Letter

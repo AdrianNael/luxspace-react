@@ -4,7 +4,9 @@ import { addClass, removeClass } from "helpers/fromat/classNameModifier";
 
 export default function Carousel({ children, refContainer }) {
   const refDragHandler = useRef(null);
-  const containerClientRect = refContainer.current.getBoundingClientRect();
+  const containerClientRect = refContainer.current
+    ? refContainer.current.getBoundingClientRect()
+    : { left: 0 };
   const [index, setIndex] = useState(0);
 
   const threshold = 100;
@@ -17,9 +19,10 @@ export default function Carousel({ children, refContainer }) {
   const posX2 = useRef();
   const posFinal = useRef();
   const isAllowShift = useRef(true);
-  const cards = useRef();
-  const cardCount = cards.current?.length || 0;
-  const cardSize = cards.current?.[0].offsetWidth || 0;
+  const cards = useRef([]);
+  const cardCount = cards.current ? cards.current.length : 0;
+  const cardSize =
+    cards.current && cards.current[0] ? cards.current[0].offsetWidth : 0;
 
   const fnCheckIndex = useCallback(
     (e) => {
@@ -119,8 +122,8 @@ export default function Carousel({ children, refContainer }) {
 
       posInitial.current = refDragHandler.current.offsetLeft;
 
-      if (e.type === "touchstart") {
-        posX1.current = e.touch[0].clientX;
+      if (e.type === "touchstart" && e.touches.length > 0) {
+        posX1.current = e.touches[0].clientX;
       } else {
         posX1.current = e.clientX;
         document.onmouseup = onDragEnd;

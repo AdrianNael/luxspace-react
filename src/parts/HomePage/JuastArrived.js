@@ -7,6 +7,23 @@ import Carousel from "../../components/Carousel";
 import useAsync from "../../helpers/hooks/useAsync";
 import fetch from "../../helpers/fetch";
 
+function Loading() {
+  return Array(6)
+    .fill()
+    .map((_, index) => {
+      return (
+        <div className="relative px-4 card group" key={index}>
+          <div
+            className="relative overflow-hidden bg-gray-300 rounded-xl card-shadow"
+            style={{ width: 287, height: 386 }}
+          ></div>
+          <div className="w-24 h-3 mt-3 bg-gray-300 rounded-full"></div>
+          <div className="h-3 mt-2 bg-gray-300 rounded-full w-36"></div>
+        </div>
+      );
+    });
+}
+
 export default function JuastArrived() {
   const { data, status, error, run, isLoading } = useAsync();
 
@@ -30,7 +47,15 @@ export default function JuastArrived() {
         <div className="container mx-auto" ref={refContainer}></div>
         {/* <div className="z-10 overflow-hidden"> */}
         {isLoading ? (
-          <div className="relative flex flex-row -mx-4">Loading: </div>
+          <div
+            className="relative flex flex-row -mx-4"
+            style={{
+              paddingLeft:
+                refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
+            }}
+          >
+            <Loading />{" "}
+          </div>
         ) : error ? (
           JSON.stringify(error)
         ) : data.data.length === 0 ? (
