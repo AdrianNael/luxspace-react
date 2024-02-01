@@ -2,11 +2,11 @@ import React from "react";
 import useAsync from "helpers/hooks/useAsync";
 import useForm from "helpers/hooks/useForm";
 import fetch from "helpers/fetch";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "helpers/hooks/useGlobalContext";
 
 export default function ShippingDetails() {
-  const history = useNavigate();
+  const navigate  = useNavigate();
   const { data, run, isLoading } = useAsync();
   const { state, dispatch } = useGlobalContext();
 
@@ -40,7 +40,7 @@ export default function ShippingDetails() {
         }),
       });
       if (res) {
-        history.push("/congratulation");
+        navigate("/congratulation");
         dispatch({
           type: "RESET_CART",
         });

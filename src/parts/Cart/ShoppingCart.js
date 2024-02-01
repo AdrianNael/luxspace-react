@@ -64,7 +64,7 @@ export default function ShoppingCart() {
               <div className="flex-1 w-auto px-4 md:w-5/12">
                 <div className="">
                   <h6 className="text-lg font-semibold leading-8 md:text-xl">
-                    Saman Kakka
+                    {item.title}
                   </h6>
                   <span className="text-sm md:text-lg">
                     {item.category.title}
@@ -76,9 +76,7 @@ export default function ShoppingCart() {
               </div>
               <div className="flex-none hidden w-auto px-4 md:flex-1 md:w-5/12 md:block">
                 <div className="">
-                  <h6 className="text-lg font-semibold">
-                    {item.price}
-                  </h6>
+                  <h6 className="text-lg font-semibold">{item.price}</h6>
                 </div>
               </div>
               <div className="w-2/12 px-4">
