@@ -25,7 +25,7 @@ function Loading() {
 }
 
 export default function JuastArrived() {
-  const { data, status, error, run, isLoading } = useAsync();
+  const { data, error, run, isLoading } = useAsync();
 
   const refContainer = useRef(null);
 
