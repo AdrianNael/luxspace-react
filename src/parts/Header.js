@@ -5,7 +5,7 @@ import { useGlobalContext } from "helpers/hooks/useGlobalContext";
 import { ReactComponent as IconCart } from "assets/images/icon-cart.svg";
 
 export default function Header({ theme, position }) {
-  // const [toggleMainMenu, setToggleMainMenu] = useState(false);
+  const [toggleMainMenu, setToggleMainMenu] = useState(false);
   const [isCartChanged, setCartChanged] = useState(false);
   const { state } = useGlobalContext();
 
@@ -22,7 +22,7 @@ export default function Header({ theme, position }) {
   }, [state.cart]);
 
   return (
-    <header className={[position, "w-full z-20 px-4"].join(" ")}>
+    <header className={[position, "w-full z-40 px-4"].join(" ")}>
       <div className="container py-5 mx-auto">
         <div className="flex items-center flex-stretch">
           <div className="flex items-center w-56">
@@ -36,7 +36,12 @@ export default function Header({ theme, position }) {
           <div className="w-full"></div>
           <div className="w-auto">
             <ul
-              className="fixed inset-0 flex flex-col items-center justify-center invisible bg-white opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center"
+              className={[
+                "fixed bg-white inset-0 flex flex-col items-center justify-center md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center",
+                toggleMainMenu
+                  ? "opacity-100 z-30 visible"
+                  : "invisible opacity-0",
+              ].join(" ")}
               id="menu"
             >
               <li className="py-6 mx-3 md:py-0">
@@ -45,8 +50,8 @@ export default function Header({ theme, position }) {
                   className={[
                     "hover:underline",
                     theme === "white"
-                      ? "text - black md:text-white"
-                      : "text - white md:text-black",
+                      ? "text-black md:text-white"
+                      : "text-black md:text-black",
                   ].join(" ")}
                 >
                   Showcase
@@ -57,9 +62,9 @@ export default function Header({ theme, position }) {
                   to="/catalog"
                   className={[
                     "hover:underline",
-                    theme === "white"
-                      ? "text - black md:text-white"
-                      : "text - white md:text-black",
+                     theme === "white"
+                      ? "text-black md:text-white"
+                      : "text-black md:text-black",
                   ].join(" ")}
                 >
                   Catalog
@@ -71,8 +76,8 @@ export default function Header({ theme, position }) {
                   className={[
                     "hover:underline",
                     theme === "white"
-                      ? "text - black md:text-white"
-                      : "text - white md:text-black",
+                      ? "text-black md:text-white"
+                      : "text-black md:text-black",
                   ].join(" ")}
                 >
                   Delivery
@@ -84,8 +89,8 @@ export default function Header({ theme, position }) {
                   className={[
                     "hover:underline",
                     theme === "white"
-                      ? "text - black md:text-white"
-                      : "text - white md:text-black",
+                      ? "text-black md:text-white"
+                      : "text-black md:text-black",
                   ].join(" ")}
                 >
                   Rewards
@@ -97,8 +102,14 @@ export default function Header({ theme, position }) {
             <ul className="flex items-center">
               <li className="block ml-6 md:hidden">
                 <button
-                  id="menu-toggler"
-                  className="relative z-50 flex items-center justify-center w-8 h-8 text-black md:text-white focus:outline-none"
+                  className={[
+                    " z-50 flex items-center justify-center w-8 h-8 text-black md:text-white focus:outline-none",
+                    toggleMainMenu ? "fixed top-0 right-0" : "relative",
+                   theme === "white"
+                      ? "text-black md:text-white"
+                      : "text-black md:text-black",
+                  ].join("")}
+                  onClick={() => setToggleMainMenu((prev) => !prev)}
                 >
                   <svg
                     className="fill-current"
@@ -118,7 +129,7 @@ export default function Header({ theme, position }) {
                     "cart flex items-center justify-center w-8 h-8",
                     theme === "white"
                       ? "text-black md:text-white"
-                      : "text-white md:text-black",
+                      : "text-black md:text-black",
                     state.cart && Object.keys(state.cart).length > 0
                       ? "cart-filled"
                       : "",

@@ -1,16 +1,20 @@
 import React from "react";
 
-import Header from "parts/Header";
 import Breadcrumb from "components/Breadcrumb";
 
+import Header from "parts/Header";
 import Sitemap from "parts/HomePage/Sitemap";
 import Footer from "parts/Footer";
 import ShoppingCart from "parts/Cart/ShoppingCart";
 import ShippingDetails from "parts/Cart/ShippingDetails";
+import Documents from 'parts/Documents'
 
-export default function HomePages() {
+
+
+export default function Cart() {
+
   return (
-    <>
+    <Documents>
       <Header theme="black" />
       <Breadcrumb
         List={[
@@ -19,8 +23,8 @@ export default function HomePages() {
         ]}
       />
       <section className="md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex -mx-4 flex-wrap">
+        <div className="container px-4 mx-auto">
+          <div className="flex flex-wrap -mx-4">
             <ShoppingCart />
             <ShippingDetails />
           </div>
@@ -29,6 +33,6 @@ export default function HomePages() {
 
       <Sitemap />
       <Footer />
-    </>
+    </Documents>
   );
 }

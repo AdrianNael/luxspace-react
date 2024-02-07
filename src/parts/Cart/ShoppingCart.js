@@ -70,13 +70,13 @@ export default function ShoppingCart() {
                     {item.category.title}
                   </span>
                   <h6 className="block text-base font-semibold md:text-lg md:hidden">
-                    {item.price}
+                    {item.price.currency()}
                   </h6>
                 </div>
               </div>
               <div className="flex-none hidden w-auto px-4 md:flex-1 md:w-5/12 md:block">
                 <div className="">
-                  <h6 className="text-lg font-semibold">{item.price}</h6>
+                  <h6 className="text-lg font-semibold">{item.price.currency()}</h6>
                 </div>
               </div>
               <div className="w-2/12 px-4">

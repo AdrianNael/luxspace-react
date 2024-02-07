@@ -7,16 +7,14 @@ import JuastArrived from "parts/HomePage/JuastArrived";
 import Clients from "parts/Clients";
 import Sitemap from "parts/HomePage/Sitemap";
 import Footer from "parts/Footer";
+import Documents from "parts/Documents";
 
-import useScrollAnchor from "helpers/hooks/useScrollAnchor";
-import useModalDOM from "helpers/hooks/useModalDOM";
 
 export default function HomePage() {
-  useScrollAnchor();
-  useModalDOM();
+
 
   return (
-    <>
+    <Documents>
       <Header theme="white" position="absolute" />
       <Hero />
       <BrowseRoom />
@@ -24,6 +22,6 @@ export default function HomePage() {
       <Clients />
       <Sitemap />
       <Footer />
-    </>
+    </Documents>
   );
 }

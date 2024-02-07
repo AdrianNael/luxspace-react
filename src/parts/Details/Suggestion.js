@@ -3,28 +3,28 @@ import { Link } from "react-router-dom";
 
 export default function Suggestion({ data }) {
   return (
-    <section className="bg-gray-100 px-4 py-16">
+    <section className="px-4 py-16 bg-gray-100">
       <div className="container mx-auto">
-        <div className="flex flex-start mb-4">
-          <h3 className="text-2xl capitalize font-semibold">
+        <div className="flex mb-4 flex-start">
+          <h3 className="text-2xl font-semibold capitalize">
             Complete your room <br className="" />
             with what we designed
           </h3>
         </div>
-        <div className="flex overflow-x-auto mb-4 -mx-3">
+        <div className="flex mb-4 -mx-3 overflow-x-auto">
           {data?.map((item) => {
             return (
-              <div className="px-3 flex-none" style={{ width: 320 }} key={item.id}>
-                <div className="rounded-xl p-4 pb-8 relative bg-white">
-                  <div className="rounded-xl overflow-hidden card-shadow w-full h-36">
+              <div className="flex-none px-3" style={{ width: 320 }} key={item.id}>
+                <div className="relative p-4 pb-8 bg-white rounded-xl">
+                  <div className="w-full overflow-hidden rounded-xl card-shadow h-36">
                     <img
                       src={item.imageUrl}
                       alt=""
-                      className="w-full h-full object-cover object-center"
+                      className="object-cover object-center w-full h-full"
                     />
                   </div>
-                  <h5 className="text-lg font-semibold mt-4">{item.title}</h5>
-                  <span className="">IDR {item.price}</span>
+                  <h5 className="mt-4 text-lg font-semibold">{item.title}</h5>
+                  <span className=""> {item.price.currency()}</span>
                   <Link
                     to={`/categories/${item.idc}/products/${item.id}`}
                     className="stretched-link"
